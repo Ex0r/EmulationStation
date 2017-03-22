@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <vector>
+
 extern const size_t arrow_svg_size;
 extern const unsigned char arrow_svg_data[];
 
