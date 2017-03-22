@@ -35,3 +35,11 @@ nbproject
 *.orig
 nbproject/private/private.xml
 *.bak
+data/converted/Thumbs_db.cpp
+data/boost_filesystem-vc100-mt-1_53.dll
+data/boost_system-vc100-mt-1_53.dll
+data/generate.bat
+data/res2h.exe
+data/res2hdump.exe
+data/resources/Thumbs.db
+data/unittest.exe
