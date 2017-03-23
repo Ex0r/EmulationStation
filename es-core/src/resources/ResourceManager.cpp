@@ -1,6 +1,6 @@
 #include "ResourceManager.h"
 #include "Log.h"
-#include "../data/Resources.h"
+//#include "../data/Resources.h"
 #include <fstream>
 #include <boost/filesystem.hpp>
 
