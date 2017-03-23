@@ -77,9 +77,6 @@ extern const unsigned char textinput_ninepatch_png_data[];
 extern const size_t textinput_ninepatch_active_png_size;
 extern const unsigned char textinput_ninepatch_active_png_data[];
 
-extern const size_t Thumbs_db_size;
-extern const unsigned char Thumbs_db_data[];
-
 extern const size_t window_icon_256_png_size;
 extern const unsigned char window_icon_256_png_data[];
 
