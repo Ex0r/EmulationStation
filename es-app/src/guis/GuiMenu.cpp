@@ -36,7 +36,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 	
 	if(Settings::getInstance()->getString("UIMode") == "Full")
 	{
-		addEntry("SCRAPER", 0x777777FF, true, 
+		addEntry("SCRAPER", 0xFFFFFFFF, true, 
 		[this, openScrapeNow] { 
 			auto s = new GuiSettings(mWindow, "SCRAPER");
 
@@ -71,7 +71,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 		});
 	}
 
-	addEntry("SOUND SETTINGS", 0x777777FF, true, 
+	addEntry("SOUND SETTINGS", 0xFFFFFFFF, true, 
 	[this] {
 		auto s = new GuiSettings(mWindow, "SOUND SETTINGS");
 
@@ -94,7 +94,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 
 	if(Settings::getInstance()->getString("UIMode") == "Full")
 	{
-		addEntry("UI SETTINGS", 0x777777FF, true,
+		addEntry("UI SETTINGS", 0xFFFFFFFF, true,
 		[this] {	
 			auto s = new GuiSettings(mWindow, "UI SETTINGS");
 
@@ -131,13 +131,13 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 							break;
 						}
 					}
-					if (!hasContent) {
-						LOG(LogDebug) << "Nothing to show in selected mode (" << UImodeSelection->getSelected() << "), resetting to full";
-						window->pushGui(new GuiMsgBox(window, "The selected view mode has nothing to show,\n returning to UI mode = FULL",
-								"OK", nullptr));
-						Settings::getInstance()->setString("UIMode", "Full");
-						needReload = false;
-					}		
+					// if (!hasContent) {
+					// 	LOG(LogDebug) << "Nothing to show in selected mode (" << UImodeSelection->getSelected() << "), resetting to full";
+					// 	window->pushGui(new GuiMsgBox(window, "The selected view mode has nothing to show,\n returning to UI mode = FULL",
+					// 			"OK", nullptr));
+					// 	Settings::getInstance()->setString("UIMode", "Full");
+					// 	needReload = false;
+					// } We don't want to reload back to the default one if the mode doesn't have content. it always will.	
 				}
 				if(needReload)
 				{
@@ -220,11 +220,11 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 			mWindow->pushGui(s);
 		});
 
-		addEntry("CONFIGURE INPUT", 0x777777FF, true, 
+		addEntry("CONFIGURE INPUT", 0xFFFFFFFF, true, 
 			[this] { 
 				mWindow->pushGui(new GuiDetectDevice(mWindow, false, nullptr));
 		});
-		addEntry("OTHER SETTINGS", 0x777777FF, true,
+		addEntry("OTHER SETTINGS", 0xFFFFFFFF, true,
 		[this] {
 			auto s = new GuiSettings(mWindow, "OTHER SETTINGS");
 
@@ -243,7 +243,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 		});
 	}
 
-	addEntry("QUIT", 0x777777FF, true, 
+	addEntry("QUIT", 0xFFFFFFFF, true, 
 		[this] {
 			auto s = new GuiSettings(mWindow, "QUIT");
 			
@@ -292,7 +292,7 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 	});
 
 	mVersion.setFont(Font::get(FONT_SIZE_SMALL));
-	mVersion.setColor(0xC6C6C6FF);
+	mVersion.setColor(0xFFFFFFFF);
 	mVersion.setText("XCADE CONSOLE" + strToUpper(PROGRAM_VERSION_STRING));
 	mVersion.setAlignment(ALIGN_CENTER);
 
