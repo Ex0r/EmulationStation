@@ -203,7 +203,9 @@ void ComponentList::render(const Eigen::Affine3f& parentTrans)
 		// (1 - dst) + 0x77
 	
 		const float selectedRowHeight = getRowHeight(mEntries.at(mCursor).data);
-		Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0x00FA18FF,
+		// Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0x00FA18FF,
+		// 	GL_ONE_MINUS_DST_COLOR, GL_ZERO);
+		Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0xFFFFFFFF,
 			GL_ONE_MINUS_DST_COLOR, GL_ZERO);
 		Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 0x00FA18FF,
 			GL_ONE, GL_ONE);
@@ -211,8 +213,8 @@ void ComponentList::render(const Eigen::Affine3f& parentTrans)
 		// hack to draw 2px dark on left/right of the bar
 		// Renderer::drawRect(0.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x878787FF);
 		// Renderer::drawRect(mSize.x() - 2.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x878787FF);
-		Renderer::drawRect(0.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x000000FF);
-		Renderer::drawRect(mSize.x() - 2.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x000000FF);
+		Renderer::drawRect(0.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x00FA18FF);
+		Renderer::drawRect(mSize.x() - 2.0f, mSelectorBarOffset, 2.0f, selectedRowHeight, 0x00FA18FF);
 
 		for(auto it = drawAfterCursor.begin(); it != drawAfterCursor.end(); it++)
 			(*it)->render(trans);
