@@ -2,7 +2,8 @@
 
 #pragma once
 
-#include <vector>
+#include <string>
+#include <map>
 
 extern const size_t arrow_svg_size;
 extern const unsigned char arrow_svg_data[];
@@ -148,5 +149,8 @@ struct Res2hEntry {
     const unsigned char * data;
 };
 
-extern const std::vector<const Res2hEntry> res2hVector;
-extern const std::map<const std::string, const Res2hEntry> res2hMap;
+extern const size_t res2hNrOfFiles;
+extern const Res2hEntry res2hFiles[];
+
+typedef const std::map<const std::string, const Res2hEntry> res2hMapType;
+extern res2hMapType res2hMap;
